@@ -7,6 +7,7 @@ export default function Weather({ city }) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+
   useEffect(() => {
     async function fetchWeather() {
       setLoading(true);
@@ -34,12 +35,12 @@ export default function Weather({ city }) {
     fetchWeather();
   }, [city]);
 
-  if (loading) return <p>Загрузка...</p>;
-  if (error) return <p style={{ color: "red" }}>Ошибка: {error}</p>;
+  if (loading) return <p className="loading">Загрузка...</p>;
+  if (error) return <p className="error">Ошибка: {error}</p>;
   if (!data) return null;
 
   return (
-    <div>
+    <div className="WeatherCard">
       <h2>{data.name}</h2>
       <p><strong>Температура:</strong> {data.main.temp} °C</p>
       <p><strong>Ощущается как:</strong> {data.main.feels_like} °C</p>

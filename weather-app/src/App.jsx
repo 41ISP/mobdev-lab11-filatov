@@ -5,6 +5,17 @@ export default function App() {
   const [city, setCity] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
 
+    useEffect(() => {
+    const fetchLocation = async () => {
+       //alert(123)
+      navigator.geolocation.getCurrentPosition((position) => {
+        console.log(position.toJSON());
+      });
+    }
+    fetchLocation()
+  }, [])
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (city.trim()) {
