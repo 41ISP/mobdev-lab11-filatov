@@ -1,0 +1,133 @@
+/* ===== Общие стили ===== */
+:root {
+  --bg: #f0f4f8;
+  --card-bg: #ffffff;
+  --accent: #0077ff;
+  --text: #333;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* ===== Контейнер приложения ===== */
+.App {
+  margin-top: 60px;
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  padding: 2rem 2.5rem;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Заголовок ===== */
+.App h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+}
+
+/* ===== Форма ===== */
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+input[type="text"] {
+  flex: 1;
+  min-width: 180px;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: 0.2s border-color;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+button {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.2s background-color, transform 0.1s;
+}
+
+button:hover {
+  background-color: #005fcb;
+  transform: scale(1.05);
+}
+
+/* ===== Карточка с погодой ===== */
+.WeatherCard {
+  background-color: var(--bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  margin-top: 1rem;
+  animation: fadeIn 0.5s ease;
+}
+
+.WeatherCard h2 {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.WeatherCard p {
+  margin: 0.4rem 0;
+  font-size: 1.1rem;
+}
+
+/* ===== Состояния ===== */
+.loading {
+  color: gray;
+  font-style: italic;
+}
+
+.error {
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+/* ===== Адаптив ===== */
+@media (max-width: 480px) {
+  .App {
+    padding: 1.5rem;
+  }
+  input[type="text"] {
+    width: 100%;
+  }
+}
